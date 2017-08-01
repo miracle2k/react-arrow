@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn run build
-      - run: npm install -g bundlecop
+      - run: sudo npm install -g bundlecop
       - run: bundlecop submit dist/
 
 
