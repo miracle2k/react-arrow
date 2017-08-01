@@ -10,7 +10,7 @@ Installation
 ------------
 
 ```bash
-$ npm install @miracle2k/react-arrow
+$ npm install @elsdoerfer/react-arrow
 ```
 
 
@@ -18,7 +18,7 @@ Sample
 ------
 
 ```javascript
-import Arrow from '@miracle2k/react-arrow';
+import Arrow from '@elsdoerfer/react-arrow';
 
 const renderArrow = props => (
   <Arrow
