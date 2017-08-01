@@ -1,4 +1,7 @@
 module.exports = {
+  module.exports = {
+    pathPrefix: `/react-arrow`,
+  },
   siteMetadata: {
     title: `Gatsby Default Starter`,
   },
