@@ -1,0 +1,9 @@
+{
+  "name": "react-arrow",
+  "version": "1.0.0",
+  "description": "React component that renders a SVG arrow. Can point in any direction, different styles.",
+  "main": "index.js",
+  "repository": "https://github.com/miracle2k/react-arrow.git",
+  "author": "Michael Elsdörfer <michael@elsdoerfer.com>",
+  "license": "MIT"
+}
