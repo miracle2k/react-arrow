@@ -5,7 +5,7 @@ import Arrow from '../../../index';
 
 const IndexPage = () => (
   <div>
-    <h3>Have a look at some of these samples:</h3>
+    <h3>Some examples:</h3>
 
     <div style={{
       display: 'flex',

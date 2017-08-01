@@ -20,15 +20,22 @@ const Header = () => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+        <a
+          href="https://github.com/miracle2k/react-arrow"
           style={{
             color: 'white',
             textDecoration: 'none',
           }}
         >
           react-arrow demo
-            </Link>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/miracle2k/react-arrow"
+         style={{
+            color: 'white',
+            fontSize: '0.7em'
+          }}
+          >Find me on Github</a>
       </h1>
     </div>
   </div>
