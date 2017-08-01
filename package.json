@@ -1,5 +1,5 @@
 {
-  "name": "@miracle2k/react-arrow",
+  "name": "@elsdoerfer/react-arrow",
   "version": "1.0.0",
   "description": "React component that renders a SVG arrow. Can point in any direction, different styles.",
   "main": "index.js",
