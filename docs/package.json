@@ -1,5 +1,5 @@
 {
-  "name": "react-arrow docs",
+  "name": "react-arrow-docs",
   "description": "react-arrow docs page",
   "version": "1.0.0",
   "author": "Michael Elsdoerfer <michael@elsdoerfer.com>",
@@ -16,10 +16,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "prettier": "^1.5.2"
   }
 }
