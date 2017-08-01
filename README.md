@@ -9,13 +9,15 @@ See a demo: https://miracle2k.github.io/react-arrow/
 Installation
 ------------
 
+```bash
 $ npm install @miracle2k/react-arrow
+```
 
 
 Sample
 ------
 
-```
+```javascript
 import Arrow from '@miracle2k/react-arrow';
 
 const renderArrow = props => (
