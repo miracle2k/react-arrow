@@ -5,6 +5,7 @@ React component that renders an SVG arrow. You ca use this to point at things.
 
 See a demo: https://miracle2k.github.io/react-arrow/
 
+[![BundleCop](https://api.bundlecop.com/badge/badge/267127374228848642.svg?file=index.js&label=BundleCop)](https://app.bundlecop.com/project/267127372062654466)
 
 Installation
 ------------
