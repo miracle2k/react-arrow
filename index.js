@@ -1,33 +1,30 @@
 // http://thenewcode.com/1068/Making-Arrows-in-SVG
 
-import React, {PureComponent} from 'react';
-
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 const PolyLineStyle = {
-  fill: 'none',
+  fill: 'none'
   // Not yet sure if this is a good property to set or not
   //vectorEffect: 'non-scaling-stroke'
-}
+};
 
 const PathStyle = {
   fill: 'none'
-}
-
+};
 
 function toRad(d) {
-  return d * Math.PI / 180;
+  return (d * Math.PI) / 180;
 }
 
-
 export default class Arrow extends PureComponent {
-
   static propTypes = {
-    length: React.PropTypes.number,
-    angle: React.PropTypes.number,
-    color: React.PropTypes.string,
-    arrowHeadFilled: React.PropTypes.bool,
-    lineWidth: React.PropTypes.number,
-    lineDashed: React.PropTypes.oneOf([React.PropTypes.bool, React.PropTypes.string])
+    length: PropTypes.number,
+    angle: PropTypes.number,
+    color: PropTypes.string,
+    arrowHeadFilled: PropTypes.bool,
+    lineWidth: PropTypes.number,
+    lineDashed: PropTypes.oneOf([PropTypes.bool, PropTypes.string])
   };
 
   static defaultProps = {
@@ -48,12 +45,18 @@ export default class Arrow extends PureComponent {
   }
 
   render() {
-    let {length, angle, arrowHeadFilled, lineWidth, lineDashed,
-        ...otherProps} = this.props;
+    let {
+      length,
+      angle,
+      arrowHeadFilled,
+      lineWidth,
+      lineDashed,
+      ...otherProps
+    } = this.props;
 
     // By default, our sin math would let the angle rotate to
     // the left. Reverse the direction.
-    angle = - angle + 180;
+    angle = -angle + 180;
     angle = angle % 360;
 
     // Let's do some trig to calculate the viewbox.
@@ -79,21 +82,21 @@ export default class Arrow extends PureComponent {
     let padding = 10;
 
     // Now we have a viewBox
-    const viewBox = `0 0 ${width + padding*2} ${height + padding*2}`;
+    const viewBox = `0 0 ${width + padding * 2} ${height + padding * 2}`;
 
     function point(x, y) {
       if (b < 0) {
-        x = (width + padding*2) - x;
+        x = width + padding * 2 - x;
       }
       if (a < 0) {
-        y = (height + padding*2) - y;
+        y = height + padding * 2 - y;
       }
-      return `${x},${y}`
+      return `${x},${y}`;
     }
 
     const path = [
-      `M${point(padding,padding)}`,
-      `L${point(width+padding,height+padding)}`,
+      `M${point(padding, padding)}`,
+      `L${point(width + padding, height + padding)}`
     ];
 
     // TODO: Cooler line:
@@ -101,13 +104,12 @@ export default class Arrow extends PureComponent {
 
     const markerId = `Arrow-pointer-${this.uniqid}`;
 
-
     // Based on the props, determine the styles.
     const arrowHeadStyle = {
       ...PolyLineStyle,
       strokeWidth: 0,
       stroke: this.props.color
-    }
+    };
     if (this.props.arrowHeadFilled) {
       arrowHeadStyle.fill = this.props.color;
     } else {
@@ -118,22 +120,18 @@ export default class Arrow extends PureComponent {
       ...PathStyle,
       stroke: this.props.color,
       strokeWidth: this.props.lineWidth
-    }
+    };
 
     if (lineDashed) {
       if (typeof lineDashed !== 'string') {
         lineDashed = '11, 5';
-      };
+      }
 
       lineStyle.strokeDasharray = lineDashed;
     }
 
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={viewBox}
-        {...otherProps}
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} {...otherProps}>
         <defs>
           <marker
             id={markerId}
@@ -142,11 +140,9 @@ export default class Arrow extends PureComponent {
             refX="8"
             refY="5"
             orient="auto"
-            markerUnits="strokeWidth">
-              <polyline
-                points="1 1, 9 5, 1 9"
-                style={arrowHeadStyle}
-              />
+            markerUnits="strokeWidth"
+          >
+            <polyline points="1 1, 9 5, 1 9" style={arrowHeadStyle} />
           </marker>
         </defs>
         <path
@@ -155,6 +151,6 @@ export default class Arrow extends PureComponent {
           markerEnd={`url(#${markerId})`}
         />
       </svg>
-    )
+    );
   }
 }
