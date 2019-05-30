@@ -11,11 +11,25 @@ let promise = Promise.resolve();
 // Clean up the output directory
 promise = promise.then(() => del(['dist/*']));
 
+
+const external = [
+  ...Object.keys(pkg.peerDependencies || {}),
+  ...Object.keys(pkg.dependencies || {}),
+];
+
+const makeExternalPredicate = externalArr => {
+  if (externalArr.length === 0) {
+    return () => false;
+  }
+  const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
+  return id => pattern.test(id);
+}
+
 // Compile source code into a distributable format with Babel
-['es', 'cjs', 'umd'].forEach((format) => {
+['es', 'cjs'].forEach((format) => {
   promise = promise.then(() => rollup.rollup({
     entry: 'index.js',
-    external: Object.keys(pkg.dependencies || {}),
+    external: makeExternalPredicate(external),
     plugins: [babel(Object.assign(pkg.babel, {
       babelrc: false,
       exclude: 'node_modules/**',
