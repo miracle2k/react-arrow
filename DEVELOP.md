@@ -1,7 +1,8 @@
 Based on https://github.com/kriasoft/babel-starter-kit/:
 
+```sh
 yarn version
-yarn buid
+yarn build
 cd dist
 npm publish
-
+```

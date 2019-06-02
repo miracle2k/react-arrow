@@ -1,7 +1,7 @@
 react-arrow
 ===========
 
-React component that renders an SVG arrow. You ca use this to point at things.
+React component that renders an SVG arrow. You can use this to point at things.
 
 See a demo: https://miracle2k.github.io/react-arrow/
 
