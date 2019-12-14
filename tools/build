@@ -28,7 +28,7 @@ const makeExternalPredicate = externalArr => {
 // Compile source code into a distributable format with Babel
 ['es', 'cjs'].forEach((format) => {
   promise = promise.then(() => rollup.rollup({
-    entry: 'index.js',
+    input: 'index.js',
     external: makeExternalPredicate(external),
     plugins: [babel(Object.assign(pkg.babel, {
       babelrc: false,
@@ -37,7 +37,9 @@ const makeExternalPredicate = externalArr => {
       presets: pkg.babel.presets.map(x => (x === 'latest' ? ['latest', { es2015: { modules: false } }] : x)),
     }))],
   }).then(bundle => bundle.write({
-    dest: `dist/${format === 'cjs' ? 'index' : `index.${format}`}.js`,
+    output: {
+      file: `dist/${format === 'cjs' ? 'index' : `index.${format}`}.js`
+    },
     format,
     sourceMap: true,
     moduleName: format === 'umd' ? pkg.name : undefined,
