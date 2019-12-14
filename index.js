@@ -24,7 +24,7 @@ export default class Arrow extends PureComponent {
     color: PropTypes.string,
     arrowHeadFilled: PropTypes.bool,
     lineWidth: PropTypes.number,
-    lineDashed: PropTypes.oneOf([PropTypes.bool, PropTypes.string])
+    lineDashed: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
   };
 
   static defaultProps = {
